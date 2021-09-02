@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import FieldList from "./Components/FieldList/FieldList";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import Winner from "./Components/Pop-up/Winner/Winner";
+import Start from "./Components/Pop-up/Start/Start";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [winnerModalActive, setWinnerModalActive] = useState(false)
+    const winner = useSelector(state => state.user.winner)
+    const [startModalWindow, setStartModalWindow] = useState(true)
+
+
+    useEffect(() => {
+        if (winner) {
+            setWinnerModalActive((prev => !prev))
+        }
+    }, [winner])
+
+
+    return (
+        <>
+            <Start  startModalWindow={startModalWindow} setStartModalWindow={setStartModalWindow}/>
+            <Winner winner={winner} startModalWindow={winnerModalActive} setStartModalWindow={setWinnerModalActive}/>
+            <FieldList/>
+
+        </>
+    );
 }
 
 export default App;
