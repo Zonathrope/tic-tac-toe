@@ -4,28 +4,19 @@ import './FieldList.css'
 
 
 const FieldList = () => {
-    function* increment() {
-        let index = 1;
-        while (true) {
-            yield index++;
+
+    const render = () => {
+        const arr = []
+        for (let i = 1; i <= 9; i++) {
+            arr.push(<Field id={i}/>)
         }
+        return arr
     }
-    const generateID = increment()
 
-    const arrayField = [
-        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>,
-        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>,
-        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>
-    ]
-
-
-    const reRender = (arr) =>(
-        arr.map(el => el)
-    )
 
     return (
         <div className="grid">
-            {reRender(arrayField)}
+            {render().map(el => el)}
         </div>
     );
 };
