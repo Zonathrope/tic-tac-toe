@@ -8,7 +8,9 @@ const Start = ({startModalWindow, setStartModalWindow}) => {
 
     function assignPlayers(e) {
         e.preventDefault()
-        dispatch({type: "SET_PLAYERS", players})
+        if (!(players.player1 === '' || players.player2 === '')) {
+            dispatch({type: "SET_PLAYERS", players})
+        }
         setStartModalWindow(false)
     }
 
