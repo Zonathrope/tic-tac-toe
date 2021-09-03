@@ -1,5 +1,7 @@
 const defaultState = {
     firstPlayer: true,
+    player1: "player1",
+    player2: "player2",
 }
 
 export const userReducer = (state = defaultState, action) => {
