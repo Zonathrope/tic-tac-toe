@@ -6,11 +6,12 @@ import Winner from "./Components/Pop-up/Winner/Winner";
 import Start from "./Components/Pop-up/Start/Start";
 
 function App() {
-    const [winnerModalActive, setWinnerModalActive] = useState(false)
     const winner = useSelector(state => state.user.winner)
+
     const [startModalWindow, setStartModalWindow] = useState(true)
+    const [winnerModalActive, setWinnerModalActive] = useState(false)
 
-
+    console.log(winner)
     useEffect(() => {
         if (winner) {
             setWinnerModalActive((prev => !prev))
@@ -21,7 +22,7 @@ function App() {
     return (
         <>
             <Start  startModalWindow={startModalWindow} setStartModalWindow={setStartModalWindow}/>
-            <Winner winner={winner} startModalWindow={winnerModalActive} setStartModalWindow={setWinnerModalActive}/>
+            <Winner winner={winner} winnerModalWindow={winnerModalActive} setWinnerModalActive={setWinnerModalActive}/>
             <FieldList/>
 
         </>

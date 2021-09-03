@@ -3,7 +3,7 @@ import Field from "../Field/Field";
 import './FieldList.css'
 
 
-const FieldList = ({render}) => {
+const FieldList = () => {
     function* increment() {
         let index = 1;
         while (true) {
@@ -13,14 +13,14 @@ const FieldList = ({render}) => {
     const generateID = increment()
 
     const arrayField = [
-        [<Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>],
-        [<Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>],
-        [<Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>]
+        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>,
+        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>,
+        <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>, <Field id={generateID.next().value}/>
     ]
 
 
     const reRender = (arr) =>(
-        arr.map(row => row.map(el => el))
+        arr.map(el => el)
     )
 
     return (

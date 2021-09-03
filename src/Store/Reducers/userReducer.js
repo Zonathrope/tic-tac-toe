@@ -9,7 +9,7 @@ export const userReducer = (state = defaultState, action) => {
         case "SET_WINNER":
             return {...state, winner: action.winner}
         case "SET_PLAYERS":
-            return {...state, player1: action.player1, player2: action.player2}
+            return {...state, player1: action.players.player1, player2: action.players.player2}
         default:
             return state
     }
