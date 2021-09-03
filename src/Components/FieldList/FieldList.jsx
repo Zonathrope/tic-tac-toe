@@ -10,13 +10,12 @@ const FieldList = () => {
         for (let i = 1; i <= 9; i++) {
             arr.push(<Field id={i}/>)
         }
-        return arr
+        return arr.map(el => el)
     }
-
 
     return (
         <div className="grid">
-            {render().map(el => el)}
+            {render()}
         </div>
     );
 };

@@ -20,13 +20,13 @@ const Field = ({id}) => {
     }
 
     const playerSign = (firstPlayer) => {
-        if (firstPlayer) return "X"
-        else return "O"
+        return firstPlayer ? "X" : "O"
     }
+
     //return X or 0
     const isWinner = checkWinner(board)
     if (isWinner) {
-        if(isWinner ==="X"){
+        if(isWinner === "X"){
             dispatch({type: "SET_WINNER", winner: player1})
         }
         else{

@@ -9,6 +9,7 @@ const Winner = () => {
         <Modal active={!!winner}>
             Player {winner} is winner!
             <p>
+                {/*TODO: need to trigger render func from FieldList*/}
                 <button>restart</button>
             </p>
         </Modal>
