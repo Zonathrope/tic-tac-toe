@@ -1,0 +1,10 @@
+.stats{
+    height: 440px;
+}
+
+.stats p{
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+}
+
